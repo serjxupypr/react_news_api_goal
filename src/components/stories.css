@@ -1,13 +1,7 @@
-.stories {
-  margin: 20px 0;
-}
-
-.stories-header {
+.stories-card-holder {
+  margin: 0 -10px;
   display: flex;
-  line-height: 24px;
-  font-size: 16px;
-  padding: 0 10px;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .stories-header > span {
