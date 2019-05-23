@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './app.css';
 import Stories from './Stories';
-import PostHeader from './PostHeader';
+import MainHeader from './main-header/MainHeader';
+import { Route, Switch } from 'react-router-dom';
 import { fetchPosts } from '../actions/posts';
 
 class App extends Component {
@@ -17,8 +18,12 @@ class App extends Component {
   render ()  {
    return (
     <div className="app">
-      <PostHeader/>
-      <Stories/>
+      <MainHeader/>
+      <Switch>
+        {/* <Route path="/" component={Home}/> */}
+        <Route path="/stories" component={Stories}/>
+        {/* <Route path="/story/:id" component={SingleStory}/> */}
+      </Switch>
     </div>
    )
   }

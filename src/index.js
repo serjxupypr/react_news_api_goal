@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom';
 import App from './components/app';
 import './index.css';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import store from './store/store';
 
 // console.log('main index js store', store.getState());
 
+const app = (
+  <BrowserRouter>
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  </BrowserRouter>
+);
+
 ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
+  app,
   document.getElementById('root')
 );

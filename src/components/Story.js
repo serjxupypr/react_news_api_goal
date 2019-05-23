@@ -1,8 +1,7 @@
 import React from 'react';
 import './story.css';
-import ButtonInline from './Button';
 
-const Story = ({story, }) => {
+const Story = ({story }) => {
   
     return (
       <div className="stories-card-item">
@@ -16,10 +15,6 @@ const Story = ({story, }) => {
 
         <span className="story-text">
           {story.body}
-        </span>
-
-        <span className="story-add-to-archive">
-          <ButtonInline onClick={() => {}} btnText={'archive'} />
         </span>
       </div>
     )

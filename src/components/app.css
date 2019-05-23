@@ -3,6 +3,7 @@
 }
 
 body {
+  margin: 0;
   color: #222;
   background: #f4f4f4;
   font: 400 14px CoreSans, Arial,sans-serif;
@@ -64,10 +65,12 @@ button:hover {
   outline: none;
 }
 
-.app {
-  margin: 20px;
-}
-
 .interactions, .error {
   text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }

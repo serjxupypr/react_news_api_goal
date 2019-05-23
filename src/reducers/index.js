@@ -4,7 +4,7 @@ import getSearchPosts from './postSearch';
 
 const rootReducer = combineReducers({
   storyState: storyReducer,
-  searchPostsState: getSearchPosts
+  searchPostsState: getSearchPosts,
 });
 
 

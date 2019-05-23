@@ -1,12 +1,12 @@
 import React from 'react';
 import PostSearch from './search/PostsSearch';
-import './PostHeader.css';
+import './PostsHeader.css';
 
-const PostHeader = () => (
+const PostsHeader = () => (
   <div className="posts-header">
     <div className="search-header-title">Search some post...</div>
     <PostSearch/>
   </div>
 );
 
-export default PostHeader;
+export default PostsHeader;
