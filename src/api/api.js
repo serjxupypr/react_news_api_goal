@@ -1,3 +1,3 @@
-const getPosts = () => fetch('https://jsonplaceholder.typicode.com/posts');
+const getPosts = url => fetch(url);
 
 export default getPosts;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 import './stories.css';
 import Story from './Story';
 import PostsHeader from '../components/PostsHeader';
@@ -18,6 +19,7 @@ const Stories = ({store}) => {
               return (
                 <Story
                   key={story.id}
+                  storyId={story.id}
                   story={story}
                 />
               )

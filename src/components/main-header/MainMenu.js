@@ -17,7 +17,7 @@ const links = [
 const MainMenu = () => {
   const linkList = links.map((link, index) => {
     return (
-      <li className="main-nav--list__item">
+      <li className="main-nav--list__item" key={index}>
         <NavLink 
           to={link.to}
           activeClassName={'active'}

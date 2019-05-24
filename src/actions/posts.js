@@ -3,12 +3,12 @@ import { GET_ALL_STORIES_FAIL } from '../constants/actionTypes';
 import { GET_ALL_STORIES_LOAD } from '../constants/actionTypes';
 import getPosts from '../api/api';
 
-const fetchPosts = () => dispatch => {
+const fetchPosts = url => dispatch => {
   dispatch({
     type: GET_ALL_STORIES_LOAD
   });
 
-  getPosts()
+  getPosts(url)
   .then(response => response.json())
   .then(response => {
     if(response.length) {

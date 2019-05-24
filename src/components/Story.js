@@ -1,21 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './story.css';
 
-const Story = ({story }) => {
+const Story = ({ story, storyId }) => {
   
     return (
       <div className="stories-card-item">
-        <h3 className="story-title"
-        style={{
-          display: 'block',
-          marginRight: '20px'
-        }}>
-          <a href={story.url}>{story.title}</a>
-        </h3>
-
-        <span className="story-text">
-          {story.body}
-        </span>
+        <Link to={`/stories/${storyId}`} className="story-link">
+          <h3 className="story-title"
+          style={{
+            display: 'block',
+            marginRight: '20px'
+          }}>
+            {story.title}
+          </h3>
+        </Link>
       </div>
     )
 }
