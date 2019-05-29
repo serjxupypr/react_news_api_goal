@@ -5,7 +5,8 @@ import './MainMenu.css';
 const links = [
   {
     to: '/',
-    title: 'Home page'
+    title: 'Home page',
+    exact: true
   },
   {
     to: '/stories',

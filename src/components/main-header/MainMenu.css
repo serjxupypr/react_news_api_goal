@@ -9,3 +9,7 @@
 .main-nav--list__item {
   padding: 10px 20px;
 }
+
+.main-nav--list__item .active {
+  font-weight: bold;
+}

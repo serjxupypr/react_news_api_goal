@@ -1,9 +1,11 @@
 .posts-header {
-  margin: 0 0 40px;
-  padding: 20px 0 0;
+  padding: 20px 0 40px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  background: rgba(244, 244, 244, .6);
+  /* position: sticky;
+  top: 20px; */
 }
 
 .search-header-title {

@@ -4,6 +4,11 @@
   flex-wrap: wrap;
 }
 
+/* .stories-card-item {
+  position: sticky;
+  top: 115px;
+} */
+
 .stories-header > span {
   overflow: hidden;
   text-overflow: ellipsis;

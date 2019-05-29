@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import postSearch from '../../actions/postSearch';
+import postSearch from '../../../actions/postSearch';
 import './PostSearch.css';
 
 const goSearch = (allPosts ,inputValue) => (

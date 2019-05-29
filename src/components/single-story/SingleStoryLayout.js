@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SingleStory  from './SingleStory';
-import fetchSinglePost from '../../actions/singlePost';
+import { fetchSinglePost, clearSinglePost } from '../../actions/singlePost';
 import './singleStoryLayout.css';
 
 let rootPostUrl = 'https://jsonplaceholder.typicode.com/posts/';
@@ -13,12 +13,12 @@ class SingleStoryLayout extends Component {
     super();
   }
 
-  componentWillUpdate() {
-    renderContent = <div className="single-story-loader">Loading...</div>;
-  }
-
   componentDidMount() {
     this.props.fetchSinglePost(rootPostUrl + this.props.match.params.storyId);
+  }
+
+  componentWillUnmount() {
+    this.props.clearSinglePost();
   }
 
   render() {
@@ -45,6 +45,7 @@ const MapStateToProps = store => ({
 
 const mapDispatchToProps = {
   fetchSinglePost,
+  clearSinglePost,
 }
 
 export default connect(
