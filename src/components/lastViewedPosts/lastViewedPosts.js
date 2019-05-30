@@ -5,7 +5,7 @@ let storage = window.localStorage;
 console.log(storage);
 
 const LastViewedPosts = () => (
-  storage.puzzle != undefined ?
+  storage.puzzle !== undefined ?
   <div>There are some posts</div> :
   <div>There are no any posts</div>
 );

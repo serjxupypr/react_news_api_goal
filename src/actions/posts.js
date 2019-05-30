@@ -1,4 +1,5 @@
 import { GET_ALL_STORIES_SUCCESS } from '../constants/actionTypes';
+import { CLEAR_ALL_STORIES } from '../constants/actionTypes';
 import { GET_ALL_STORIES_FAIL } from '../constants/actionTypes';
 import { GET_ALL_STORIES_LOAD } from '../constants/actionTypes';
 import getPosts from '../api/api';
@@ -29,6 +30,17 @@ const fetchPostsFail = payload => ({
   payload,
 });
 
+const postsLoadStart = () => ({
+  type: GET_ALL_STORIES_LOAD
+});
+
+const clearStories = payload => ({
+  type: CLEAR_ALL_STORIES,
+  payload,
+});
+
 export {
   fetchPosts,
+  clearStories,
+  postsLoadStart,
 }

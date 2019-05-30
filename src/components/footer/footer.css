@@ -1,0 +1,14 @@
+.main-footer {
+  padding: 30px 0;
+  background: rgba(0, 158, 119, 1);
+  color: #fff;
+}
+
+.main-footer .footer-text {
+  margin: 0 0 40px;
+  text-align: justify;
+}
+
+.main-footer .copyright {
+  text-align: right;
+}

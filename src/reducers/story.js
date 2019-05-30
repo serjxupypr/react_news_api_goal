@@ -1,6 +1,7 @@
 import { GET_ALL_STORIES_SUCCESS } from '../constants/actionTypes';
 import { GET_ALL_STORIES_FAIL } from '../constants/actionTypes';
 import { GET_ALL_STORIES_LOAD } from '../constants/actionTypes';
+import { CLEAR_ALL_STORIES } from '../constants/actionTypes';
 
 const initialState = {
   isLoading: false,
@@ -28,6 +29,13 @@ const storyReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.payload
+      }
+
+    case CLEAR_ALL_STORIES : 
+      return {
+        ...state,
+        isLoading: false,
+        posts: action.payload
       }
 
     default: return state;

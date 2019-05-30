@@ -1,7 +1,17 @@
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 
+let storage = window.localStorage;
+
+let viewedPosts = !storage.viewedPosts ? [] : storage.getItem('viewedPosts');
+
 const SingleStory = ({ postData }) => {
+  // viewedPosts = !viewedPosts.length ? viewedPosts.unshift({
+  //   title: postData.title,
+  //   userId: postData.userId,
+  //   pagePath: `/stories/${postData.id}`,
+  // }) : false ;
+
   return (
     <Fragment>
       <Helmet>

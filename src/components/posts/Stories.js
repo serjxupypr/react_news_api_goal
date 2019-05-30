@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import './stories.css';
 import Story from './Story';
 import PostsHeader from './PostsHeader';
-import { fetchPosts } from '../../actions/posts';
+import Loader from '../loader/Loader'
+import { fetchPosts, postsLoadStart } from '../../actions/posts';
 import Helmet from 'react-helmet';
 
 
@@ -14,6 +15,7 @@ class Stories extends Component {
   }
 
   componentDidMount() {
+    this.props.postsLoadStart();
     this.props.fetchPosts('https://jsonplaceholder.typicode.com/posts');
   }
 
@@ -26,9 +28,11 @@ class Stories extends Component {
         <div className="container">
           <PostsHeader/>
           <div className="stories-card-holder">
-            { !this.props.store.searchPostsState.noResults ? 
+            { this.props.store.storyState.isLoading ? 
+              <Loader/> : 
+              !this.props.store.searchPostsState.noResults ? 
               // check search existence and return content depends on it
-              ((this.props.store.searchPostsState.length != 0 ?
+              ((this.props.store.searchPostsState.length !== 0 ?
                 this.props.store.searchPostsState.posts :
                 this.props.store.storyState.posts || []).map(story => {
                 return (
@@ -38,7 +42,7 @@ class Stories extends Component {
                     story={story}
                   />
                 )
-              })) :
+              })) : 
               (<div className="no-results">Items were not found...</div>)
             }
           </div>
@@ -54,6 +58,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   fetchPosts,
+  postsLoadStart,
 }
 
 export default connect(

@@ -8,7 +8,7 @@ const getSearchPosts = (state = initialState, action) => {
       return {
         ...state,
         posts: action.searchResults,
-        noResults: action.searchResults !== undefined && action.searchResults.length == 0
+        noResults: action.searchResults !== undefined && action.searchResults.length === 0
       }
 
     default : return state;
