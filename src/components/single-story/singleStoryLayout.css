@@ -1,8 +1,5 @@
 .single-story-holder {
+  flex: 1 0 auto;
   padding: 40px 0;
-}
-
-.single-story__title {
-  font-size: 32px;
-  text-transform: uppercase;
+  background: #fff;
 }

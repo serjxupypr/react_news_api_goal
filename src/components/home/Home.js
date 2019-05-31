@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
-// import LastViewedPosts from '../lastViewedPosts/lastViewedPosts';
+import LastViewedPosts from '../lastViewedPosts/LastViewedPosts';
 import './home.css';
 
 const Home = () => (
@@ -18,7 +18,7 @@ const Home = () => (
         </div>
       </div>
     </div>
-    {/* <LastViewedPosts/> */}
+    <LastViewedPosts/>
   </Fragment>
 );
 

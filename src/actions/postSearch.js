@@ -1,4 +1,4 @@
-import { GET_SEARCH_POSTS } from '../constants/actionTypes';
+import { GET_SEARCH_POSTS, CLEAR_SEARCH_POSTS } from '../constants/actionTypes';
 
 const postSearch = (searchResults) => (
   {
@@ -8,3 +8,9 @@ const postSearch = (searchResults) => (
 );
 
 export default postSearch;
+
+export const clearSearch = () => (
+  {
+    type: CLEAR_SEARCH_POSTS
+  }
+)

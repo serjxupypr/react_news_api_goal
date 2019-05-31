@@ -5,6 +5,7 @@ import Story from './Story';
 import PostsHeader from './PostsHeader';
 import Loader from '../loader/Loader'
 import { fetchPosts, postsLoadStart } from '../../actions/posts';
+import { clearSearch } from '../../actions/postSearch';
 import Helmet from 'react-helmet';
 
 
@@ -12,6 +13,10 @@ import Helmet from 'react-helmet';
 class Stories extends Component {
   constructor() {
     super();
+  }
+
+  componentWillMount() {
+    this.props.clearSearch();
   }
 
   componentDidMount() {
@@ -59,6 +64,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   fetchPosts,
   postsLoadStart,
+  clearSearch
 }
 
 export default connect(
