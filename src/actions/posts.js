@@ -2,14 +2,14 @@ import { GET_ALL_STORIES_SUCCESS } from '../constants/actionTypes';
 import { CLEAR_ALL_STORIES } from '../constants/actionTypes';
 import { GET_ALL_STORIES_FAIL } from '../constants/actionTypes';
 import { GET_ALL_STORIES_LOAD } from '../constants/actionTypes';
-import getPosts from '../api/api';
+import getData from '../api/api';
 
 const fetchPosts = url => dispatch => {
   dispatch({
     type: GET_ALL_STORIES_LOAD
   });
 
-  getPosts(url)
+  getData(url)
   .then(response => response.json())
   .then(response => {
     if(response.length) {

@@ -1,3 +1,3 @@
-const getPosts = url => fetch(url);
+const getData = url => fetch(url);
 
-export default getPosts;
+export default getData;
