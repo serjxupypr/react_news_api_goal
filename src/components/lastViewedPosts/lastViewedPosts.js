@@ -7,10 +7,6 @@ let content;
 
 class LastViewedPosts extends Component {
 
-  constructor() {
-    super();
-  }
-
   componentWillMount() {
     const viewedPosts = !storage.viewedPosts ? [] : JSON.parse(storage.getItem('viewedPosts'));
 

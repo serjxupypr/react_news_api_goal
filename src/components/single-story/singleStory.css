@@ -19,7 +19,7 @@
   text-transform: uppercase;
 }
 
-.single-story .img-holder {
+.single-story .single-story-header .img-holder {
   position: absolute;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@
   height: 100%;
 }
 
-.single-story .img-holder:before {
+.single-story .single-story-header .img-holder:before {
   content: '';
   position: absolute;
   top: 0;
@@ -38,7 +38,7 @@
   z-index: 1;
 }
 
-.single-story .img-holder img {
+.single-story .single-story-header .img-holder img {
   position: absolute;
   display: block;
   width: 100%;

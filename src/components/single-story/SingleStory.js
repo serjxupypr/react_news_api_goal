@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
-import './singleStory.css'
+import './singleStory.css';
+import Commentaries from '../commentaries/commentaries';
 
 let storage = window.localStorage;
 
@@ -65,6 +66,9 @@ const SingleStory = ({ postData }) => {
           <p>
             {postData.body}
           </p>
+        </div>
+        <div >
+          <Commentaries postId={postData.id}/>
         </div>
       </div>
     </Fragment>
