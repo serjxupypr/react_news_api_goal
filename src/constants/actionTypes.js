@@ -15,3 +15,4 @@ export const CLEAR_SEARCH_POSTS = 'CLEAR_SEARCH_POSTS';
 
 // single post comments action types
 export const GET_POST_COMMENTS = 'GET_POST_COMMENTS';
+export const CLEAR_POST_COMMENTS = 'CLEAR_POST_COMMENTS';

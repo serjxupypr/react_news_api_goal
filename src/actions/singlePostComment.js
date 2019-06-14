@@ -1,5 +1,5 @@
 import getData from '../api/api';
-import { GET_POST_COMMENTS } from '../constants/actionTypes';
+import { GET_POST_COMMENTS, CLEAR_POST_COMMENTS } from '../constants/actionTypes';
 
 const getPostComments = url => dispatch => {
   dispatch(clearComments());
@@ -16,13 +16,16 @@ const getPostComments = url => dispatch => {
 const postCommentsToStore = (payload) => {
   return {
     type: GET_POST_COMMENTS,
+    isLoading: false,
     comments: payload,
   }
 };
 
 const clearComments = () => {
+  console.log('azazazas');
   return {
-    type: GET_POST_COMMENTS,
+    type: CLEAR_POST_COMMENTS,
+    isLoading: true,
     comments: null,
   }
 }

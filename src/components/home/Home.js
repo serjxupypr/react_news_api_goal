@@ -8,6 +8,7 @@ const Home = () => (
   <Fragment>
     <Helmet>
       <title>Puzzzle - Home</title>
+      <meta name="description" content="home page description" />
     </Helmet>
     <div className="home-intro">
       <div className="container">

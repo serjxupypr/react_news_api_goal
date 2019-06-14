@@ -7,13 +7,9 @@ import Loader from '../loader/Loader'
 import { fetchPosts, postsLoadStart } from '../../actions/posts';
 import { clearSearch } from '../../actions/postSearch';
 import Helmet from 'react-helmet';
-
-
+import { ALL_POSTS_URL } from '../../constants/urlsToData';
 
 class Stories extends Component {
-  constructor() {
-    super();
-  }
 
   componentWillMount() {
     this.props.clearSearch();
@@ -21,7 +17,7 @@ class Stories extends Component {
 
   componentDidMount() {
     this.props.postsLoadStart();
-    this.props.fetchPosts('https://jsonplaceholder.typicode.com/posts');
+    this.props.fetchPosts(ALL_POSTS_URL);
   }
 
   render() {
@@ -29,6 +25,7 @@ class Stories extends Component {
       <div className="stories-section">
         <Helmet>
           <title>Puzzzle - Stories</title>
+          <meta name="description" content="stories description" />
         </Helmet>
         <div className="container">
           <PostsHeader/>

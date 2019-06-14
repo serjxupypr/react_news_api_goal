@@ -4,15 +4,13 @@ import SingleStory  from './SingleStory';
 import { fetchSinglePost, clearSinglePost } from '../../actions/singlePost';
 import './singleStoryLayout.css';
 import Loader from '../loader/Loader'
+import { ALL_POSTS_URL } from '../../constants/urlsToData';
 
-let rootPostUrl = 'https://jsonplaceholder.typicode.com/posts/';
+let rootPostUrl = ALL_POSTS_URL;
 
 let renderContent;
 
 class SingleStoryLayout extends Component {
-  constructor() {
-    super();
-  }
 
   getPostUrl() {
     let postUrl = rootPostUrl + this.props.match.params.storyId;

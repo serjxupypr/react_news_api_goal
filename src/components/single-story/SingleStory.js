@@ -1,51 +1,18 @@
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
+import Commentaries from '../../containers/Commentaries';
+import setLastViewedPosts from './setLastViewedPosts';
 import './singleStory.css';
-import Commentaries from '../commentaries/commentaries';
-
-let storage = window.localStorage;
-
-let viewedPosts = !storage.viewedPosts ? [] : JSON.parse(storage.getItem('viewedPosts'));
-
-const isPostExist = (postData) => {
-  let match = 0;
-
-  viewedPosts.map((post) => {
-    if ( post.pagePath === `/stories/${postData.id}` ) {
-    
-      match +=1;
-    }
-  });
-
-  return match > 0 ? true: false;
-}
 
 const SingleStory = ({ postData }) => {
 
-  if(!isPostExist(postData)) {
-    
-    if ( !viewedPosts.length || viewedPosts.length < 4 ) {
-      viewedPosts.push({
-        title: postData.title,
-        userId: postData.userId,
-        pagePath: `/stories/${postData.id}`,
-      });
-    } else {
-      viewedPosts.pop();
-      viewedPosts.unshift({
-        title: postData.title,
-        userId: postData.userId,
-        pagePath: `/stories/${postData.id}`,
-      });
-    }
-
-    storage.setItem('viewedPosts', JSON.stringify(viewedPosts));
-  };
+  setLastViewedPosts(postData);
 
   return (
     <Fragment>
       <Helmet>
         <title>Puzzzle - {postData.title}</title>
+        <meta name="description" content={postData.title + " description"} />
       </Helmet>
       <div className="single-story">
         <header className="single-story-header">
@@ -62,11 +29,11 @@ const SingleStory = ({ postData }) => {
             </div>
           </div>
         </header>
-        <div className="single-story-text-box">
+        {<div className="single-story-text-box">
           <p>
             {postData.body}
           </p>
-        </div>
+        </div>}
         <div >
           <Commentaries postId={postData.id}/>
         </div>

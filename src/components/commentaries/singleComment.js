@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './single-comment.css';
 
 const SingleComment = ({postComment}) => {
-  console.log(postComment);
 
   return (
     <div className="comment-item">

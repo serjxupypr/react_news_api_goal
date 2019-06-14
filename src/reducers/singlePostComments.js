@@ -1,4 +1,4 @@
-import { GET_POST_COMMENTS } from '../constants/actionTypes';
+import { GET_POST_COMMENTS, CLEAR_POST_COMMENTS } from '../constants/actionTypes';
 
 let initialState = [];
 
@@ -7,6 +7,14 @@ const singlePostComments = (state = initialState, action) => {
     case GET_POST_COMMENTS:
       return {
         ...state,
+        isLoading: action.isLoading,
+        comments: action.comments
+      }
+
+    case CLEAR_POST_COMMENTS:
+      return {
+        ...state,
+        isLoading: action.isLoading,
         comments: action.comments
       }
 
