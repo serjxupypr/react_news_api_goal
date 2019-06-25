@@ -2,22 +2,22 @@ import { GET_SINGLE_STORY_LOAD } from '../constants/actionTypes';
 import { GET_SINGLE_STORY_SUCCESS } from '../constants/actionTypes';
 import { GET_SINGLE_STORY_FAIL } from '../constants/actionTypes';
 import { SINGLE_STORY_CLEAR } from '../constants/actionTypes';
-import getData from '../api/api'
+import { Posts } from '../api/posts/posts';
 
-const fetchSinglePost = url => dispatch => {
+const fetchSinglePost = url => async dispatch => {
   dispatch({
     type: GET_SINGLE_STORY_LOAD
   });
 
-  getData(url)
-    .then(response => response.json())
-    .then(response => {
-      if(response) {
-        dispatch(fetchSinglePostSuccess(response));
-      } else {
-        dispatch(fetchSinglePostError('failed'));
-      }
-    })
+  try {
+    const response = await Posts.getSinglePost(url);
+    dispatch(fetchSinglePostSuccess(response));
+  }
+
+  catch (error) {
+    console.warn('fetch singlePost data failed!');
+  }
+
 }
 
 const fetchSinglePostSuccess = payload  => ({

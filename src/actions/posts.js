@@ -1,32 +1,25 @@
 import { GET_ALL_STORIES_SUCCESS } from '../constants/actionTypes';
 import { CLEAR_ALL_STORIES } from '../constants/actionTypes';
-import { GET_ALL_STORIES_FAIL } from '../constants/actionTypes';
 import { GET_ALL_STORIES_LOAD } from '../constants/actionTypes';
-import getData from '../api/api';
+import { Posts } from '../api/posts/posts';
 
-const fetchPosts = url => dispatch => {
+const fetchPosts = url => async dispatch => {
   dispatch({
     type: GET_ALL_STORIES_LOAD
   });
 
-  getData(url)
-  .then(response => response.json())
-  .then(response => {
-    if(response.length) {
-      dispatch(fetchPostsSuccess(response));
-    } else {
-      dispatch(fetchPostsFail('failed'));
-    }
-  });
+  try {
+    const response = await Posts.getAllPosts(url);
+    dispatch(fetchPostsSuccess(response));
+  }
+
+  catch (error) {
+    console.warn('fetch posts data failed!');
+  }
 };
 
 const fetchPostsSuccess = payload =>({
   type: GET_ALL_STORIES_SUCCESS,
-  payload,
-});
-
-const fetchPostsFail = payload => ({
-  type: GET_ALL_STORIES_FAIL,
   payload,
 });
 

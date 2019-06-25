@@ -1,16 +1,17 @@
-import getData from '../api/api';
 import { GET_POST_COMMENTS, CLEAR_POST_COMMENTS } from '../constants/actionTypes';
+import { Comments } from '../api/comments/comments';
 
-const getPostComments = url => dispatch => {
+const getPostComments = url => async dispatch => {
   dispatch(clearComments());
 
-  getData(url)
-    .then(response => response.json())
-    .then(response => {
-      if(response) {
-        dispatch(postCommentsToStore(response));
-      }
-    });
+  try {
+    const response = await Comments.getPostComments(url);
+    dispatch(postCommentsToStore(response));
+  }
+
+  catch (error) {
+    console.warn('fetch comments failed!');
+  }
 }
 
 const postCommentsToStore = (payload) => {
@@ -22,7 +23,6 @@ const postCommentsToStore = (payload) => {
 };
 
 const clearComments = () => {
-  console.log('azazazas');
   return {
     type: CLEAR_POST_COMMENTS,
     isLoading: true,

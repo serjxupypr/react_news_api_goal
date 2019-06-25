@@ -8,6 +8,7 @@ import { fetchPosts, postsLoadStart } from '../../actions/posts';
 import { clearSearch } from '../../actions/postSearch';
 import Helmet from 'react-helmet';
 import { ALL_POSTS_URL } from '../../constants/urlsToData';
+import PropTypes from 'prop-types';
 
 class Stories extends Component {
 
@@ -52,6 +53,13 @@ class Stories extends Component {
       </div>
     )
   }
+}
+
+Stories.propTypes = {
+  fetchPosts: PropTypes.func.isRequired,
+  postsLoadStart: PropTypes.func.isRequired,
+  clearSearch: PropTypes.func.isRequired,
+  store: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

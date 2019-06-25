@@ -1,5 +1,6 @@
 import React from 'react';
 import './single-comment.css';
+import PropTypes from 'prop-types';
 
 const SingleComment = ({postComment}) => {
 
@@ -22,4 +23,13 @@ const SingleComment = ({postComment}) => {
     </div>
   )
 }
+
+SingleComment.propTypes = {
+  postComment: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    body: PropTypes.string,
+  })
+}
+
 export default SingleComment;

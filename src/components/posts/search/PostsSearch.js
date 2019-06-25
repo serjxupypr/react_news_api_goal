@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import postSearch from '../../../actions/postSearch';
 import './PostSearch.css';
+import PropTypes from 'prop-types';
 
 const goSearch = (allPosts ,inputValue) => (
   allPosts.filter((postItem) => {
@@ -21,6 +22,11 @@ const PostSearch = ({store, dispatch}) => (
     </form>
   </div>
 );
+
+PostSearch.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  store: PropTypes.object.isRequired
+}
 
 const mapStateToProps = (store) => ({
   store,

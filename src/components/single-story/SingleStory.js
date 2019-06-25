@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import Commentaries from '../../containers/Commentaries';
 import setLastViewedPosts from './setLastViewedPosts';
 import './singleStory.css';
+import PropTypes from 'prop-types';
 
 const SingleStory = ({ postData }) => {
 
@@ -40,6 +41,10 @@ const SingleStory = ({ postData }) => {
       </div>
     </Fragment>
   )
+}
+
+SingleStory.propTypes = {
+  postData: PropTypes.object.isRequired,
 }
 
 export default SingleStory;

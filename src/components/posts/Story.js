@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './story.css';
+import PropTypes from 'prop-types';
 
 const Story = ({ story, storyId }) => {
   
@@ -17,6 +18,11 @@ const Story = ({ story, storyId }) => {
         </Link>
       </div>
     )
+}
+
+Story.propTypes = {
+  story: PropTypes.object.isRequired,
+  storyId: PropTypes.number.isRequired,
 }
 
 export default Story;

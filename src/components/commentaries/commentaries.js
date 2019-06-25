@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SingleComment from './singleComment';
 import LoaderHoc from '../../hoc/loaderHoc';
 import { SINGLE_POST_COMMENTS_URL } from '../../constants/urlsToData';
+import PropTypes from 'prop-types';
 import './commentaries.css';
 
 
@@ -34,6 +35,12 @@ class Commentaries extends Component {
       <LoaderHoc isLoading={this.props.store.singlePostComments.isLoading} children={content} />
     )
   }
+}
+
+Commentaries.propTypes = {
+  getPostComments: PropTypes.func.isRequired,
+  postId: PropTypes.number.isRequired,
+  store: PropTypes.object.isRequired
 }
 
 export default Commentaries;

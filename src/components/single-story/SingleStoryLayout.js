@@ -5,6 +5,7 @@ import { fetchSinglePost, clearSinglePost } from '../../actions/singlePost';
 import './singleStoryLayout.css';
 import Loader from '../loader/Loader'
 import { ALL_POSTS_URL } from '../../constants/urlsToData';
+import PropTypes from 'prop-types';
 
 let rootPostUrl = ALL_POSTS_URL;
 
@@ -42,6 +43,10 @@ class SingleStoryLayout extends Component {
       </div>
     )
   }
+}
+
+SingleStoryLayout.propTypes = {
+  store: PropTypes.object.isRequired,
 }
 
 const MapStateToProps = store => ({
